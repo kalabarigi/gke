@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: "nginx-sha256-1"
-        image: "europe-west2-docker.pkg.dev/tcs-lab-447919/tcs-docker-demo/nginx@sha256:21d5f8d07b9ab257c4406b61f126f55c78d73d049a1da9d2250807c44b923f96"
+        image: "europe-west2-docker.pkg.dev/tcs-lab-447919/tcs-docker-demo/nginx:latest"
 ---
 apiVersion: "autoscaling/v2"
 kind: "HorizontalPodAutoscaler"
