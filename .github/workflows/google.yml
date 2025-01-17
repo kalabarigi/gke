@@ -48,5 +48,4 @@ jobs:
       if: github.ref == 'refs/heads/main'
       run: terraform apply -auto-approve
      # working-directory: ./path/to/terraform/files
-      env:
-        GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
+      
