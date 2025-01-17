@@ -1,0 +1,52 @@
+name: Terraform Build GKE
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout the repository
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - id: 'auth'
+      uses: 'google-github-actions/auth@v2'
+      with:
+        credentials_json: '${{ secrets.GCP_TCS }}'
+
+    # Setup Terraform CLI
+    - name: Setup Terraform
+      uses: hashicorp/setup-terraform@v2
+      with:
+        terraform_version: 1.5.0 # Update to the desired Terraform version
+
+    # Initialize Terraform
+    - name: Terraform Init
+      run: terraform init
+    #  working-directory: ./path/to/terraform/files
+
+    # Validate the Terraform code
+    - name: Terraform Validate
+      run: terraform validate
+     # working-directory: ./path/to/terraform/files
+
+    # Plan Terraform changes
+    - name: Terraform Plan
+      run: terraform plan
+    #  working-directory: ./path/to/terraform/files
+
+    # Apply Terraform changes (only on push to main)
+    - name: Terraform Apply
+      if: github.ref == 'refs/heads/main'
+      run: terraform apply -auto-approve
+     # working-directory: ./path/to/terraform/files
+      env:
+        GOOGLE_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
