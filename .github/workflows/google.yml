@@ -45,7 +45,7 @@ jobs:
 
     # Apply Terraform changes (only on push to main)
     - name: Terraform Apply
-      if: github.ref == 'refs/heads/main'
+    #  if: github.ref == 'refs/heads/main'
       run: terraform apply -auto-approve
      # working-directory: ./path/to/terraform/files
       
