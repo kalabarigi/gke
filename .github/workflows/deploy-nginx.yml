@@ -22,6 +22,7 @@ jobs:
           framework: terraform 
     
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
 
