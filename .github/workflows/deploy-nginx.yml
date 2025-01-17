@@ -6,7 +6,7 @@ on:
     - 'main'
 
 jobs:
-  build:    
+  scan:    
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -22,7 +22,7 @@ jobs:
           framework: terraform 
     
   deploy:
-    needs: build
+    needs: scan
     runs-on: ubuntu-latest
     steps:
 
