@@ -18,7 +18,7 @@ jobs:
         id: checkov
         uses: bridgecrewio/checkov-action@master
         with:
-          directory: src
+          directory: ./
           framework: terraform 
     
   deploy:
