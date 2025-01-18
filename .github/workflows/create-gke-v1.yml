@@ -34,6 +34,6 @@ jobs:
       env:
         GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
       run: |
-        gcloud --quiet alpha container clusters list --region europe-west1    
+        gcloud --quiet container clusters list --region europe-west1    
 
    
