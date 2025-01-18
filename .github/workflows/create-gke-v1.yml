@@ -34,7 +34,7 @@ jobs:
       env:
         GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
       run: |
-        echo "TAG_NAME=$(gcloud --quiet container clusters list --region europe-west1 | grep tcs-demo-gke" >> $GITHUB_OUTPUT
+        echo "TAG_NAME=$(gcloud --quiet container clusters list --region europe-west1 | grep tcs-demo-gke)" >> $GITHUB_OUTPUT
       id: checkcl
 
     - name: print cluster name
