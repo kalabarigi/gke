@@ -11,6 +11,7 @@ resource "google_container_cluster" "gke_cluster" {
 
   node_config {
     machine_type = "e2-micro"
+    disk_size_gb = 30
     oauth_scopes = [
       "https://www.googleapis.com/auth/cloud-platform",
     ]
