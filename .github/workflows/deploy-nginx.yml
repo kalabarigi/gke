@@ -47,8 +47,9 @@ jobs:
         GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
       run: |
         gcloud auth configure-docker europe-west2-docker.pkg.dev
-        docker build -t europe-west2-docker.pkg.dev/tcs-lab-447919/tcs-docker-demo/nginx:latest .
-        docker push europe-west2-docker.pkg.dev/tcs-lab-447919/tcs-docker-demo/nginx:latest
+        docker build -t europe-west2-docker.pkg.dev/tcs-lab-448312/tcs-docker-demo/nginx:latest .
+        docker push europe-west2-docker.pkg.dev/tcs-lab-448312/tcs-docker-demo/nginx:latest
+        
 
     - name: deploy the docker image to gke
       env:
