@@ -46,6 +46,8 @@ jobs:
       env:
         GOOGLE_PROJECT: ${{ secrets.GOOGLE_PROJECT }}
       run: |
+        echo "${{ secrets.GCP_TCS }}" > key.json
+        gcloud auth activate-service-account --key-file=key.json
         gcloud auth configure-docker europe-west2-docker.pkg.dev
         docker build -t europe-west2-docker.pkg.dev/tcs-demo-448312/tcs-docker-demo/nginx:latest .
         docker push europe-west2-docker.pkg.dev/tcs-demo-448312/tcs-docker-demo/nginx:latest
