@@ -21,7 +21,7 @@ jobs:
           directory: ./
           framework: terraform 
   
-  deploy-nginx-docker-image: 
+  code-checkout: 
    #needs: scan-deployment-code
     runs-on: ubuntu-latest
     steps:
@@ -34,7 +34,7 @@ jobs:
   
   setup-environment:
     runs-on: ubuntu-latest
-    needs: deploy-nginx-docker-image
+    needs: code-checkout
     steps:
       - name: Deploy gcloud utils and authenticate github
         uses: google-github-actions/setup-gcloud@v2
